@@ -246,39 +246,11 @@ High-Level Architecture
 
 <img width="841" height="552" alt="Screenshot 2026-08-24 101734" src="https://github.com/user-attachments/assets/7cade087-1ac3-41df-8c06-3f480419bb1d" />
 
-backend/
-│
-├── analyzer/
-│   ├── api/
-│   │   ├── urls.py
-│   │   ├── serializers/
-│   │   └── views/
-│   │
-│   ├── services/
-│   │   ├── ocr_service.py
-│   │   ├── image_analysis_service.py
-│   │   ├── marketing_service.py
-│   │   ├── caption_service.py
-│   │   └── gemini_service.py
-│   │
-│   ├── utils/
-│   │   ├── image_utils.py
-│   │   ├── pdf_utils.py
-│   │   └── response_builder.py
-│   │
-│   ├── models.py
-│   └── apps.py
-│
-├── config/
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-│
-├── requirements.txt
-└── manage.py
 
-Folder Responsibilities
 Folder	Responsibility
+
+
+<img width="551" height="542" alt="image" src="https://github.com/user-attachments/assets/b190fa48-64ec-43e0-80fd-6036c78e54b1" />
 
 
 api/views
