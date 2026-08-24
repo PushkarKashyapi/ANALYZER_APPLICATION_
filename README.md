@@ -1,7 +1,33 @@
-Social Media Content Analyzer — Backend Documentation
+ocial Media Content Analyzer — Backend Documentation
+
 Version 1.0 • Django REST Framework • Production Architecture
 
+A production-grade backend built with Django REST Framework that analyzes Instagram, LinkedIn, and social media creatives using Tesseract OCR, OpenCV, and Gemini AI to generate marketing insights and engagement recommendations.
+
+Table of Contents
+
+Prerequisites & Project Setup
+
+Project Overview
+
+Backend Features
+
+Problem Statement & Solution
+
+Backend Architecture
+
+Backend Folder Structure
+
+End-to-End Working Pipeline
+
+Code Quality & SOLID Principles
+
+Backend Summary
+
+1. Prerequisites & Project Setup
 Prerequisites
+
+Before running the project, install the following:
 
 Python 3.11+
 
@@ -11,7 +37,7 @@ npm
 
 Git
 
-Tesseract OCR (installed and added to PATH)
+Tesseract OCR (installed and added to system PATH)
 
 Backend Setup
 cd backend
@@ -28,24 +54,105 @@ npm install axios framer-motion lucide-react chart.js react-chartjs-2
 npm run dev
 
 
-1. Project Overview
+2. Project Overview
 
-The backend powers the Social Media Content Analyzer, an AI-driven analysis engine that processes Instagram, LinkedIn, and other social media creatives in the form of images and PDF documents.
+The Social Media Content Analyzer backend is an AI-powered document and image analysis engine designed to evaluate marketing creatives from platforms like Instagram, LinkedIn, Facebook, and other social media channels.
 
-Its primary responsibility is to receive uploaded content, extract meaningful information, analyze visual and textual quality, generate marketing insights using AI, and return a structured JSON response that the frontend converts into interactive dashboards.
-
-Unlike a simple OCR API, this backend performs multi-stage AI analysis by combining OCR, computer vision, marketing heuristics, caption intelligence, and Gemini AI into a single pipeline.
+The backend receives uploaded images or PDF documents, extracts textual content using OCR, performs image quality analysis using computer vision, evaluates marketing effectiveness using AI, and returns a structured JSON response that is visualized on the frontend through interactive charts.
 
 Objective
-The backend solves three major problems faced by content creators and businesses:
 
-Problem	Backend Solution
-Text inside creatives cannot be evaluated automatically.	Tesseract OCR extracts complete text from images and PDFs.
-Marketing creatives have hidden design issues.	OpenCV analyzes brightness, contrast, whitespace, color balance, typography density, and image quality.
-Users need actionable improvements instead of raw scores.	Gemini AI generates marketing feedback, improved captions, hashtags, reach tips, and posting strategies.
+The backend solves common challenges faced by content creators, marketers, and businesses.
 
-2. Backend Features
-The backend is divided into specialized analysis modules. Each module performs one responsibility and contributes to the final report.
+Problem
+
+	
+
+Backend Solution
+
+
+
+
+Text inside creatives cannot be analyzed automatically.
+
+	
+
+Uses Tesseract OCR to extract text from images and PDFs.
+
+
+
+
+Marketing creatives contain hidden design flaws.
+
+	
+
+Uses OpenCV to evaluate brightness, contrast, typography density, whitespace, color balance, sharpness, and exposure.
+
+
+
+
+Users need improvement suggestions instead of raw metrics.
+
+	
+
+Uses Gemini AI to generate captions, hashtags, engagement tips, and marketing recommendations.
+
+Technologies Used
+
+Technology
+
+	
+
+Purpose
+
+
+
+
+Django REST Framework
+
+	
+
+REST API development
+
+
+
+
+Tesseract OCR
+
+	
+
+Text extraction from images and PDFs
+
+
+
+
+OpenCV
+
+	
+
+Image quality and visual analysis
+
+
+
+
+Gemini AI
+
+	
+
+Caption and marketing intelligence
+
+
+
+
+Pillow & NumPy
+
+	
+
+Image preprocessing and analysis
+
+3. Backend Features
+
+The backend is divided into multiple independent analysis modules where each module has a single responsibility and contributes to the final AI report.
 
 Core Functionalities
 Feature	Description
@@ -53,67 +160,67 @@ Feature	Description
 
 Image Upload API
 
-	Accepts PNG, JPG, JPEG, WEBP images.
+	Accepts PNG, JPG, JPEG, and WEBP images.
 
 
 PDF Upload API
 
-	Accepts PDF marketing documents and extracts embedded images and text.
+	Accepts PDF marketing creatives and extracts embedded text.
 
 
 OCR Extraction
 
-	Tesseract OCR extracts visible text from posters and advertisements.
+	Extracts visible text from posters and advertisements using Tesseract OCR.
 
 
 Image Quality Analysis
 
-	Measures brightness, contrast, sharpness, saturation, exposure, noise, whitespace, and dominant colors.
+	Measures brightness, contrast, saturation, sharpness, exposure, noise, whitespace, dominant colors, and color harmony.
 
 
 Marketing Analysis
 
-	Evaluates branding quality, CTA visibility, typography, text density, thumbnail score, and design flaws.
+	Evaluates branding quality, CTA visibility, typography score, business score, thumbnail score, and design suggestions.
 
 
 Caption Intelligence
 
-	Generates caption score, engagement score, hashtags, improved captions, reach tips, and best posting time.
+	Generates engagement score, improved caption, hashtags, reach tips, and best posting time.
 
 
 AI Recommendation Engine
 
-	Uses Gemini AI to generate personalized marketing suggestions.
+	Uses Gemini AI to generate actionable marketing recommendations.
 
 
 REST API Response
 
-	Returns structured JSON consumed directly by React Chart Dashboard.
-  
-3. Problem Statement and Solution
-
+	Returns structured JSON consumed directly by the React dashboard.
+4. Problem Statement & Solution
 Problem We Solved
 
-Most creators post marketing creatives without knowing:
+Most creators publish marketing creatives without understanding their effectiveness.
 
-Whether text is readable.
+Common challenges include:
 
-Whether CTA buttons attract attention.
+Is the extracted text readable?
 
-Whether colors match business psychology.
+Is the CTA button clearly visible?
 
-Whether captions improve engagement.
+Are colors aligned with branding psychology?
 
-Whether typography and whitespace affect readability.
+Is typography improving readability?
 
-Manual review is subjective and time-consuming.
+Will the caption increase engagement?
 
+Manual evaluation is subjective, inconsistent, and time-consuming.
 
-<img width="841" height="552" alt="image" src="https://github.com/user-attachments/assets/63d417bf-7115-49bf-9075-51e56406191b" />
+<img width="777" height="745" alt="Screenshot 2026-08-24 102710" src="https://github.com/user-attachments/assets/f4388be1-be24-4e3a-8cb3-026a37b19fb0" />
+
 
 Output Produced
 
-The backend returns one unified response containing:
+The backend generates a unified report containing:
 
 OCR extracted text.
 
@@ -121,55 +228,93 @@ Image quality metrics.
 
 Marketing insights.
 
-Caption intelligence.
+Caption analysis.
 
 AI-generated recommendations.
 
-Overall score and grading.
+Overall content score and grade.
 
-This single response powers the frontend dashboard.
+This structured response powers the frontend analytics dashboard.
 
-<img width="987" height="710" alt="image" src="https://github.com/user-attachments/assets/b43d1907-ee97-4c57-9f23-fd191acd1600" />
+(Insert JSON Response Image Here)
 
-<img width="626" height="598" alt="image" src="https://github.com/user-attachments/assets/1def7e19-0375-4398-a38f-3e9053fbc0bb" />
+5. Backend Architecture
 
-Working Functionality (End-to-End Pipeline)
-Step	Backend Operation
+The backend follows a layered production architecture that separates routing, validation, business logic, AI services, and response formatting.
+
+High-Level Architecture
+
+<img width="841" height="552" alt="Screenshot 2026-08-24 101734" src="https://github.com/user-attachments/assets/7cade087-1ac3-41df-8c06-3f480419bb1d" />
+
+backend/
+│
+├── analyzer/
+│   ├── api/
+│   │   ├── urls.py
+│   │   ├── serializers/
+│   │   └── views/
+│   │
+│   ├── services/
+│   │   ├── ocr_service.py
+│   │   ├── image_analysis_service.py
+│   │   ├── marketing_service.py
+│   │   ├── caption_service.py
+│   │   └── gemini_service.py
+│   │
+│   ├── utils/
+│   │   ├── image_utils.py
+│   │   ├── pdf_utils.py
+│   │   └── response_builder.py
+│   │
+│   ├── models.py
+│   └── apps.py
+│
+├── config/
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+│
+├── requirements.txt
+└── manage.py
+
+Folder Responsibilities
+Folder	Responsibility
 
 
-1. Upload Validation
+api/views
 
-	Checks file type, size, and supported format.
-
-
-2. OCR Processing
-
-	Tesseract extracts visible text from posters and PDFs.
+	Receives API requests and triggers the analysis pipeline.
 
 
-3. Image Analysis
+serializers
 
-	OpenCV computes brightness, contrast, saturation, sharpness, exposure, whitespace, and noise.
-
-
-4. Marketing Analysis
-
-	Business score, typography score, CTA visibility, thumbnail quality, color alignment, and whitespace score are calculated.
+	Validates uploaded image and PDF files.
 
 
-5. Caption Analysis
+services
 
-	Gemini AI evaluates engagement potential and generates improved captions and hashtags.
-
-
-6. Final Response
-
-	All outputs merged into a structured JSON payload.
-
-  <img width="1043" height="538" alt="image" src="https://github.com/user-attachments/assets/3387d6ac-5cfe-4f2d-bac1-e03ce2a548c8" />
+	Contains OCR, OpenCV, marketing analysis, caption analysis, and Gemini AI services.
 
 
-<img width="777" height="745" alt="image" src="https://github.com/user-attachments/assets/6cfe76db-cffe-4b83-b9b3-d2e560b86f7e" />
+utils
+
+	Reusable helper functions for image preprocessing, PDF parsing, and response formatting.
+
+
+config
+
+	Project configuration, middleware, routing, and environment variables.
+
+
+SOLID Principles Used
+<img width="1043" height="538" alt="Screenshot 2026-08-24 102244" src="https://github.com/user-attachments/assets/6d55dffe-4cd4-4144-bfa0-109989254652" />
+
+Our problem solving approach 
+
+<img width="808" height="837" alt="image" src="https://github.com/user-attachments/assets/10cbb89d-1176-4626-943a-8a384dc7861d" />
+
+
+
 
 
 
