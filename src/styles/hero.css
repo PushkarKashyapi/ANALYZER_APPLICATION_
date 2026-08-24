@@ -1,0 +1,290 @@
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 90px;
+  background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.06), transparent 40%), #04020b;
+  overflow: hidden;
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,.5) .8px, transparent .8px);
+  background-size: 180px 180px, 260px 260px;
+  background-position: 20px 40px, 120px 160px;
+}
+
+.hero-wrapper {
+  max-width: 1400px;
+  margin: auto;
+  padding: 80px 60px;
+  display: grid;
+  grid-template-columns: 1fr 0.95fr;
+  gap: 70px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-logo {
+  width: 140px;
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3.8rem, 5vw, 5.8rem);
+  line-height: 0.95;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 28px;
+}
+
+.hero-title span {
+  color: #9d4dff;
+}
+
+.hero-description {
+  max-width: 560px;
+  font-size: 17px;
+  line-height: 1.9;
+  color: rgba(255,255,255,.75);
+  margin-bottom: 34px;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-badges span {
+  padding: 11px 20px;
+  border-radius: 999px;
+  background: rgba(139,92,246,.08);
+  border: 1px solid rgba(139,92,246,.25);
+  color: #ece2ff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.upload-card {
+  background: #0f0c1a;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 28px;
+  padding: 34px;
+  transition: .3s ease;
+}
+
+.drag-active {
+  border-color: #8b5cf6;
+}
+
+.upload-btn {
+  width: 100%;
+  height: 58px;
+  border-radius: 16px;
+  background: linear-gradient(90deg,#7c3aed,#a855f7);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.upload-btn:hover {
+  opacity: .95;
+}
+
+.upload-btn:disabled {
+  opacity: .7;
+  cursor: wait;
+}
+
+.upload-card h3 {
+  margin-top: 26px;
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 30px;
+  color: #fff;
+}
+
+.upload-subtitle {
+  text-align: center;
+  margin: 10px 0 28px;
+  color: rgba(255,255,255,.6);
+  font-size: 14px;
+}
+
+.sample-images {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.sample-images img {
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,.08);
+}
+
+.selected-file {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: rgba(255,255,255,.04);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.file-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-details span {
+  color: #fff;
+  font-weight: 600;
+}
+
+.file-details small {
+  color: rgba(255,255,255,.55);
+}
+
+.analysis-status {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #d7c2ff;
+  font-size: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(139,92,246,.08);
+}
+
+.upload-error {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255,70,70,.08);
+  border: 1px solid rgba(255,70,70,.2);
+  color: #ff9f9f;
+  font-size: 14px;
+}
+
+@media (max-width: 992px) {
+  .hero-wrapper {
+    grid-template-columns: 1fr;
+    padding: 60px 32px;
+    text-align: center;
+  }
+
+  .hero-left {
+    align-items: center;
+  }
+
+  .hero-description {
+    max-width: 100%;
+  }
+
+  .upload-card {
+    max-width: 680px;
+    margin: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-wrapper {
+    padding: 40px 20px;
+    gap: 40px;
+  }
+
+  .hero-logo {
+    width: 100px;
+  }
+
+  .hero-title {
+    font-size: 46px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .hero-badges {
+    justify-content: center;
+  }
+
+  .hero-badges span {
+    width: 100%;
+    text-align: center;
+  }
+
+  .upload-card {
+    padding: 24px 18px;
+  }
+
+  .upload-card h3 {
+    font-size: 24px;
+  }
+
+  .sample-images img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .selected-file {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-wrapper {
+    padding: 30px 16px;
+  }
+
+  .hero-title {
+    font-size: 38px;
+  }
+
+  .hero-logo {
+    width: 82px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .upload-btn {
+    height: 52px;
+    font-size: 14px;
+  }
+
+  .upload-card h3 {
+    font-size: 22px;
+  }
+
+  .sample-images img {
+    width: 48px;
+    height: 48px;
+  }
+}
