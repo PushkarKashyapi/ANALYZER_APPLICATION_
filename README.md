@@ -4,6 +4,9 @@ Version 1.0 • Django REST Framework • Production Architecture
 
 A production-grade AI-powered Social Media Content Analyzer that evaluates Instagram, LinkedIn, and marketing creatives using OCR, Computer Vision, and Gemini AI. The application analyzes images and PDF documents, identifies design flaws, evaluates engagement potential, and provides actionable recommendations through an interactive dashboard.
 
+Frontend (Live Demo) | https://your-frontend-url.vercel.app |
+ Backend API  https://analyzer-1-272f.onrender.com/api/v1/analyze/ |
+
 ---
 
 Table of Contents
