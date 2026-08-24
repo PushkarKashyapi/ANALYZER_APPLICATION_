@@ -1,4 +1,4 @@
-ocial Media Content Analyzer — Backend Documentation
+Social Media Content Analyzer — Backend Documentation
 
 Version 1.0 • Django REST Framework • Production Architecture
 
